@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useGarden } from '../state/garden'
-import { ComingSoon } from './Flashcards'
+import ComingSoon from '../components/ComingSoon'
 
 export default function Evaluator() {
   const { completedLessons } = useGarden()

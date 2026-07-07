@@ -85,6 +85,7 @@ export default function Home() {
             emoji="🃏"
             title="Flashcards"
             body="Everyday Spanish words with usage examples, flipped at your own pace."
+            ready
           />
           <FeatureCard
             to="/wilson"

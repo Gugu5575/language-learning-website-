@@ -1,4 +1,4 @@
-import { ComingSoon } from './Flashcards'
+import ComingSoon from '../components/ComingSoon'
 
 export default function Conversation() {
   return (
