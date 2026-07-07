@@ -1,0 +1,388 @@
+/* ===========================================================================
+   Florecer — cottagecore / oil-painting / spring design system
+   =========================================================================== */
+
+:root {
+  /* --- Palette: sun-warmed cream, sage, blush, terracotta, lavender ------- */
+  --cream: #fbf4e6;
+  --parchment: #f5ead3;
+  --parchment-deep: #ecdcbd;
+  --sage: #9aaa7d;
+  --sage-deep: #77875c;
+  --sage-soft: #cdd6b8;
+  --blush: #e3a7a6;
+  --blush-soft: #f3d3cf;
+  --rose: #cf7f78;
+  --terracotta: #c67b52;
+  --terracotta-deep: #a85f3c;
+  --lavender: #b6a4c9;
+  --lavender-soft: #ded3ea;
+  --butter: #f2d98d;
+  --butter-deep: #e6bf5c;
+  --sky: #b9d3d8;
+
+  /* --- Ink ---------------------------------------------------------------- */
+  --ink: #4a3b2e;
+  --ink-soft: #6d5a48;
+  --ink-faint: #927c66;
+
+  /* --- Semantic ----------------------------------------------------------- */
+  --bg: var(--cream);
+  --surface: #fffaf0;
+  --surface-2: var(--parchment);
+  --line: #e2d3b6;
+  --line-soft: #eee1c8;
+  --shadow: 30px 30px 60px rgba(120, 96, 66, 0.12);
+  --shadow-soft: 0 12px 30px rgba(120, 96, 66, 0.12);
+  --shadow-lift: 0 18px 40px rgba(120, 96, 66, 0.18);
+
+  --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-body: 'Nunito', ui-sans-serif, system-ui, sans-serif;
+
+  --radius: 22px;
+  --radius-lg: 34px;
+  --radius-sm: 14px;
+
+  --maxw: 1080px;
+}
+
+/* --- Reset-ish ------------------------------------------------------------ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background-color: var(--bg);
+  /* soft oil-painting light: layered radial washes of spring color */
+  background-image:
+    radial-gradient(1100px 700px at 12% -8%, rgba(242, 217, 141, 0.35), transparent 60%),
+    radial-gradient(900px 620px at 92% 4%, rgba(227, 167, 166, 0.30), transparent 58%),
+    radial-gradient(1000px 760px at 78% 100%, rgba(154, 170, 125, 0.32), transparent 60%),
+    radial-gradient(760px 560px at 4% 90%, rgba(182, 164, 201, 0.28), transparent 60%);
+  background-attachment: fixed;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.12;
+  color: var(--ink);
+  margin: 0 0 0.4em;
+  letter-spacing: 0.2px;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+}
+h2 {
+  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+}
+h3 {
+  font-size: 1.4rem;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+a {
+  color: var(--terracotta-deep);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--sage-deep);
+}
+
+/* --- Layout --------------------------------------------------------------- */
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 clamp(1.1rem, 4vw, 2.4rem);
+}
+
+.page {
+  padding: 2.4rem 0 5rem;
+  animation: rise 0.5s ease both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* --- Top nav -------------------------------------------------------------- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(8px);
+  background: linear-gradient(to bottom, rgba(251, 244, 230, 0.92), rgba(251, 244, 230, 0.72));
+  border-bottom: 1px solid var(--line-soft);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 0.8rem clamp(1.1rem, 4vw, 2.4rem);
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--ink);
+  text-decoration: none;
+}
+.brand:hover {
+  text-decoration: none;
+}
+.brand-mark {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+.nav-links {
+  display: flex;
+  gap: 0.3rem;
+  margin-left: auto;
+  flex-wrap: wrap;
+}
+.nav-link {
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+.nav-link:hover {
+  background: var(--parchment);
+  text-decoration: none;
+}
+.nav-link.active {
+  background: var(--sage-soft);
+  color: var(--sage-deep);
+}
+.nav-seed {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  background: var(--butter);
+  color: var(--terracotta-deep);
+  font-weight: 800;
+  font-size: 0.9rem;
+  box-shadow: inset 0 0 0 1px rgba(230, 191, 92, 0.6);
+}
+
+/* --- Cards ---------------------------------------------------------------- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  padding: 1.6rem;
+}
+.card-quiet {
+  background: rgba(255, 250, 240, 0.7);
+}
+
+/* --- Buttons -------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  border-radius: 999px;
+  padding: 0.85rem 1.6rem;
+  font-weight: 800;
+  font-size: 1rem;
+  color: #fff;
+  background: linear-gradient(135deg, var(--terracotta), var(--terracotta-deep));
+  box-shadow: 0 10px 22px rgba(168, 95, 60, 0.28);
+  transition: transform 0.15s, box-shadow 0.2s, filter 0.2s;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(168, 95, 60, 0.34);
+  text-decoration: none;
+}
+.btn:active {
+  transform: translateY(0);
+}
+.btn:disabled {
+  filter: grayscale(0.4) opacity(0.6);
+  cursor: not-allowed;
+  transform: none;
+}
+.btn-sage {
+  background: linear-gradient(135deg, var(--sage), var(--sage-deep));
+  box-shadow: 0 10px 22px rgba(119, 135, 92, 0.3);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--ink-soft);
+  border: 1.5px solid var(--line);
+  box-shadow: none;
+}
+.btn-ghost:hover {
+  background: var(--parchment);
+  box-shadow: none;
+}
+.btn-sm {
+  padding: 0.55rem 1.1rem;
+  font-size: 0.9rem;
+}
+
+/* --- Pills / tags --------------------------------------------------------- */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.32rem 0.85rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  background: var(--lavender-soft);
+  color: #6a5680;
+}
+.pill-sage {
+  background: var(--sage-soft);
+  color: var(--sage-deep);
+}
+.pill-blush {
+  background: var(--blush-soft);
+  color: var(--rose);
+}
+.pill-butter {
+  background: var(--butter);
+  color: var(--terracotta-deep);
+}
+
+/* --- Progress bar --------------------------------------------------------- */
+.bar {
+  height: 12px;
+  border-radius: 999px;
+  background: var(--parchment-deep);
+  overflow: hidden;
+}
+.bar > span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--sage), var(--sage-deep));
+  transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* --- Footer --------------------------------------------------------------- */
+.footer {
+  margin-top: auto;
+  padding: 2rem 0 3rem;
+  text-align: center;
+  color: var(--ink-faint);
+  font-size: 0.9rem;
+}
+.footer .brand-mark {
+  opacity: 0.8;
+}
+
+/* --- Utilities ------------------------------------------------------------ */
+.grid {
+  display: grid;
+  gap: 1.4rem;
+}
+.center {
+  text-align: center;
+}
+.muted {
+  color: var(--ink-soft);
+}
+.faint {
+  color: var(--ink-faint);
+}
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.row {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+.spanish {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.15em;
+  color: var(--terracotta-deep);
+}
+.divider {
+  height: 1px;
+  background: var(--line-soft);
+  border: 0;
+  margin: 1.4rem 0;
+}
+.hidden {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .nav-inner {
+    flex-wrap: wrap;
+  }
+  .nav-links {
+    width: 100%;
+    justify-content: flex-start;
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,167 @@
+.meadow {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--line-soft);
+  background: var(--surface);
+}
+
+.meadow-sky {
+  position: relative;
+  height: 130px;
+  background: linear-gradient(180deg, #cfe6ea 0%, #e9f0e2 70%, #f3ecd6 100%);
+  overflow: hidden;
+}
+.sun {
+  position: absolute;
+  top: 16px;
+  right: 34px;
+  font-size: 2.2rem;
+  filter: drop-shadow(0 0 14px rgba(242, 217, 141, 0.9));
+  animation: glow 5s ease-in-out infinite;
+}
+@keyframes glow {
+  50% {
+    transform: scale(1.08);
+  }
+}
+.cloud {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.9;
+}
+.cloud-1 {
+  top: 22px;
+  left: -10%;
+  animation: drift 32s linear infinite;
+}
+.cloud-2 {
+  top: 60px;
+  left: -25%;
+  font-size: 1.5rem;
+  opacity: 0.7;
+  animation: drift 46s linear infinite;
+}
+@keyframes drift {
+  to {
+    transform: translateX(160vw);
+  }
+}
+.butterfly {
+  position: absolute;
+  bottom: 10px;
+  left: 20%;
+  font-size: 1.4rem;
+  animation: flutter 9s ease-in-out infinite;
+}
+@keyframes flutter {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(-6deg);
+  }
+  25% {
+    transform: translate(40px, -18px) rotate(8deg);
+  }
+  50% {
+    transform: translate(120px, 6px) rotate(-4deg);
+  }
+  75% {
+    transform: translate(60px, -10px) rotate(6deg);
+  }
+}
+
+.meadow-ground {
+  position: relative;
+  padding: 1.4rem 1.4rem 1.6rem;
+  background:
+    radial-gradient(600px 120px at 50% -30px, rgba(154, 170, 125, 0.35), transparent 70%),
+    linear-gradient(180deg, #dfe7cb 0%, #cdd8b0 100%);
+  min-height: 190px;
+}
+.meadow-empty {
+  text-align: center;
+  color: var(--sage-deep);
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-style: italic;
+  margin: 2rem auto;
+  max-width: 34ch;
+}
+
+.blooms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.1rem 0.15rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.bloom {
+  font-size: 1.7rem;
+  line-height: 1.1;
+  transform-origin: bottom center;
+  animation: sprout 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes sprout {
+  from {
+    transform: scale(0) translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+.critters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: center;
+  padding-top: 0.6rem;
+}
+.critter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  width: 82px;
+  background: rgba(255, 250, 240, 0.72);
+  border: 1px solid rgba(226, 211, 182, 0.7);
+  border-radius: 16px;
+  padding: 0.5rem 0.3rem 0.55rem;
+}
+.critter-emoji {
+  font-size: 1.9rem;
+  animation: bob 3.5s ease-in-out infinite;
+}
+.critter:nth-child(2n) .critter-emoji {
+  animation-delay: 0.6s;
+}
+.critter:nth-child(3n) .critter-emoji {
+  animation-delay: 1.2s;
+}
+@keyframes bob {
+  50% {
+    transform: translateY(-4px);
+  }
+}
+.critter-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+.critter-bar {
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--parchment-deep);
+  overflow: hidden;
+}
+.critter-bar > span {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--blush), var(--rose));
+  transition: width 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
