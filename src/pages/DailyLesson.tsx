@@ -513,8 +513,8 @@ const styles = `
 .feedback.no { background: var(--blush-soft); color: #8a4a44; }
 
 .result-hero { text-align: center; padding: 2rem 1.4rem; border-radius: var(--radius-lg); border: 1px solid var(--line-soft); box-shadow: var(--shadow-soft); }
-.result-hero.pass { background: linear-gradient(160deg, #eef3e0, #f7efd9); }
-.result-hero.fail { background: linear-gradient(160deg, #f7ecec, #f7efd9); }
+.result-hero.pass { background: linear-gradient(160deg, #dde8c1, #f1ecca); }
+.result-hero.fail { background: linear-gradient(160deg, #ecd8d2, #f1ecca); }
 .result-emoji { font-size: 3.2rem; }
 .result-score { font-family: var(--font-display); font-size: 2.4rem; font-weight: 700; color: var(--ink); }
 .award-row { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; margin-top: 0.8rem; }

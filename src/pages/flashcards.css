@@ -65,13 +65,13 @@
 }
 .flashcard-face.front {
   background:
-    radial-gradient(420px 220px at 50% 0%, rgba(242, 217, 141, 0.35), transparent 70%),
-    linear-gradient(160deg, #fffaf0, #f5ead3);
+    radial-gradient(420px 220px at 50% 0%, rgba(230, 191, 92, 0.32), transparent 70%),
+    linear-gradient(160deg, #fffdf1, #efe8c6);
 }
 .flashcard-face.back {
   background:
-    radial-gradient(420px 220px at 50% 100%, rgba(182, 164, 201, 0.28), transparent 70%),
-    linear-gradient(160deg, #fbf6ee, #eef0e2);
+    radial-gradient(420px 220px at 50% 100%, rgba(111, 163, 168, 0.3), transparent 70%),
+    linear-gradient(160deg, #f6f6ea, #d9e6e2);
   transform: rotateY(180deg);
 }
 

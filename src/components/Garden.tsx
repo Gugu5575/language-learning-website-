@@ -59,6 +59,19 @@ export default function Garden() {
           ))}
         </div>
       </div>
+
+      {/* A lily pond, where the ducks glide */}
+      <div className="pond" aria-hidden="true">
+        <span className="lily lily-1">🪷</span>
+        <span className="lily-pad pad-1" />
+        <span className="lily-pad pad-2" />
+        <span className="lily-pad pad-3" />
+        <span className="pond-duck duck-1">🦆</span>
+        <span className="pond-duck duck-2">🦆</span>
+        <span className="sparkle sparkle-1">✦</span>
+        <span className="sparkle sparkle-2">✦</span>
+        <span className="sparkle sparkle-3">✦</span>
+      </div>
     </div>
   )
 }

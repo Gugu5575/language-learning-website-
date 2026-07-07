@@ -3,38 +3,55 @@
    =========================================================================== */
 
 :root {
-  /* --- Palette: sun-warmed cream, sage, blush, terracotta, lavender ------- */
-  --cream: #fbf4e6;
-  --parchment: #f5ead3;
-  --parchment-deep: #ecdcbd;
-  --sage: #9aaa7d;
-  --sage-deep: #77875c;
-  --sage-soft: #cdd6b8;
-  --blush: #e3a7a6;
-  --blush-soft: #f3d3cf;
-  --rose: #cf7f78;
-  --terracotta: #c67b52;
-  --terracotta-deep: #a85f3c;
-  --lavender: #b6a4c9;
-  --lavender-soft: #ded3ea;
-  --butter: #f2d98d;
-  --butter-deep: #e6bf5c;
-  --sky: #b9d3d8;
+  /* --- Palette: lily-pond oil painting -----------------------------------
+     forest #0A3323 · moss #839958 · beige #F7F4D5 · rosy brown #D3968C ·
+     midnight green (teal) #105666, with lavender-hydrangea + golden light. */
+  --forest: #0a3323;
+  --forest-soft: #1d4a37;
+
+  --cream: #f7f4d5; /* beige base — the "canvas" */
+  --parchment: #efe8c6;
+  --parchment-deep: #e2dab2;
+
+  --sage: #839958; /* moss green */
+  --sage-deep: #5c7140;
+  --sage-soft: #d2dcb2;
+
+  --blush: #d3968c; /* rosy brown */
+  --blush-soft: #ecd2cb;
+  --rose: #b06f64;
+
+  --teal: #105666; /* midnight green — the water */
+  --teal-deep: #0c3f4c;
+  --teal-soft: #b6d0d1;
+  --water: #2c6b74;
+  --water-light: #6fa3a8;
+
+  /* terracotta tokens repurposed as the deep-water ink accent */
+  --terracotta: #14697a;
+  --terracotta-deep: #0c3f4c;
+
+  --lavender: #9c84b4; /* hydrangea */
+  --lavender-soft: #ddd2ec;
+  --butter: #ecca77; /* golden light */
+  --butter-deep: #dab153;
+  --gold: #e6bf5c;
+  --sky: #bcd7db;
 
   /* --- Ink ---------------------------------------------------------------- */
-  --ink: #4a3b2e;
-  --ink-soft: #6d5a48;
-  --ink-faint: #927c66;
+  --ink: #2b3823;
+  --ink-soft: #4d5a3f;
+  --ink-faint: #7c8568;
 
   /* --- Semantic ----------------------------------------------------------- */
   --bg: var(--cream);
-  --surface: #fffaf0;
+  --surface: #fffdf1;
   --surface-2: var(--parchment);
-  --line: #e2d3b6;
-  --line-soft: #eee1c8;
-  --shadow: 30px 30px 60px rgba(120, 96, 66, 0.12);
-  --shadow-soft: 0 12px 30px rgba(120, 96, 66, 0.12);
-  --shadow-lift: 0 18px 40px rgba(120, 96, 66, 0.18);
+  --line: #dcd3a9;
+  --line-soft: #e7e0bd;
+  --shadow: 30px 30px 60px rgba(28, 56, 40, 0.14);
+  --shadow-soft: 0 12px 30px rgba(28, 56, 40, 0.13);
+  --shadow-lift: 0 18px 40px rgba(28, 56, 40, 0.20);
 
   --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
   --font-body: 'Nunito', ui-sans-serif, system-ui, sans-serif;
@@ -62,12 +79,13 @@ body {
   font-family: var(--font-body);
   color: var(--ink);
   background-color: var(--bg);
-  /* soft oil-painting light: layered radial washes of spring color */
+  /* oil-painting light through a garden: moss, water, rose, hydrangea, gold */
   background-image:
-    radial-gradient(1100px 700px at 12% -8%, rgba(242, 217, 141, 0.35), transparent 60%),
-    radial-gradient(900px 620px at 92% 4%, rgba(227, 167, 166, 0.30), transparent 58%),
-    radial-gradient(1000px 760px at 78% 100%, rgba(154, 170, 125, 0.32), transparent 60%),
-    radial-gradient(760px 560px at 4% 90%, rgba(182, 164, 201, 0.28), transparent 60%);
+    radial-gradient(1100px 720px at 8% -10%, rgba(131, 153, 88, 0.34), transparent 60%),
+    radial-gradient(900px 640px at 94% 0%, rgba(211, 150, 140, 0.28), transparent 58%),
+    radial-gradient(1150px 860px at 82% 112%, rgba(16, 86, 102, 0.26), transparent 60%),
+    radial-gradient(820px 620px at -4% 98%, rgba(156, 132, 180, 0.22), transparent 60%),
+    radial-gradient(720px 520px at 55% 42%, rgba(230, 191, 92, 0.14), transparent 62%);
   background-attachment: fixed;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -81,7 +99,7 @@ h4 {
   font-family: var(--font-display);
   font-weight: 600;
   line-height: 1.12;
-  color: var(--ink);
+  color: var(--forest);
   margin: 0 0 0.4em;
   letter-spacing: 0.2px;
 }
@@ -158,7 +176,7 @@ button {
   top: 0;
   z-index: 50;
   backdrop-filter: blur(8px);
-  background: linear-gradient(to bottom, rgba(251, 244, 230, 0.92), rgba(251, 244, 230, 0.72));
+  background: linear-gradient(to bottom, rgba(247, 244, 213, 0.94), rgba(247, 244, 213, 0.74));
   border-bottom: 1px solid var(--line-soft);
 }
 .nav-inner {
@@ -176,7 +194,7 @@ button {
   font-family: var(--font-display);
   font-size: 1.6rem;
   font-weight: 700;
-  color: var(--ink);
+  color: var(--forest);
   text-decoration: none;
 }
 .brand:hover {
@@ -247,13 +265,13 @@ button {
   font-weight: 800;
   font-size: 1rem;
   color: #fff;
-  background: linear-gradient(135deg, var(--terracotta), var(--terracotta-deep));
-  box-shadow: 0 10px 22px rgba(168, 95, 60, 0.28);
+  background: linear-gradient(135deg, var(--blush), var(--rose));
+  box-shadow: 0 10px 22px rgba(176, 111, 100, 0.32);
   transition: transform 0.15s, box-shadow 0.2s, filter 0.2s;
 }
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 28px rgba(168, 95, 60, 0.34);
+  box-shadow: 0 14px 28px rgba(176, 111, 100, 0.4);
   text-decoration: none;
 }
 .btn:active {
@@ -266,7 +284,11 @@ button {
 }
 .btn-sage {
   background: linear-gradient(135deg, var(--sage), var(--sage-deep));
-  box-shadow: 0 10px 22px rgba(119, 135, 92, 0.3);
+  box-shadow: 0 10px 22px rgba(92, 113, 64, 0.32);
+}
+.btn-teal {
+  background: linear-gradient(135deg, var(--water), var(--teal-deep));
+  box-shadow: 0 10px 22px rgba(16, 86, 102, 0.32);
 }
 .btn-ghost {
   background: transparent;
